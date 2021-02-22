@@ -1,0 +1,39 @@
+Python install Windows 2021 (v.3.9)
+
+
+**Install**
+Go to python.org website
+Download Python 64 bit installer & run it, default install
+
+Find the path to Python.
+It should be somewhere like this:
+
+Add these to Environment variables for PATH, e.g.:
+C:\Users\scott.davies\AppData\Local\Programs\Python\Python39\
+C:\Users\scott.davies\AppData\Local\Programs\Python\Python39\Scripts
+
+Add this to user variables:
+Activate, C:\Users\scott.davies\Documents\ws\py\envpy39\Scripts\activate
+
+
+
+Start a command shell (cmd)
+Type: python
+exit()
+
+Type: pip --help
+python -m pip install --upgrade pip
+
+pip install virtualenv
+
+CD to a folder to place a virtualenv to hold packages
+e.g. cd C:\Users\scott.davies\Documents\ws\py
+virtualenv envpy39
+
+
+%Activate%
+
+pip install numpy
+pip install scipy
+pip install matplotlib
+
