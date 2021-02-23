@@ -13,6 +13,21 @@ def parseFile(dataDir, fileName):
 
 	with open(filePath) as json_file:
 		rows = []
+		projectDataFields = (
+				"Description",
+				"ExistingArea",
+				"ResBedrooms",
+				"NewArea",
+				"StatVet",
+				"BuildingType",
+				"NumberLevels",
+				"NumberUnits",
+				"ClassifiedUse",
+				"BuildingUse",
+				"EstimatedValue",
+				"RestrictedWork",
+				"ResidentialBuildingContract",
+			)
 
 		try:
 			data = json.load(json_file)
@@ -68,22 +83,6 @@ def parseFile(dataDir, fileName):
 				"council_name": councilName
 			}
 			
-			projectDataFields = (
-				"Description",
-				"ExistingArea",
-				"ResBedrooms",
-				"NewArea",
-				"StatVet",
-				"BuildingType",
-				"NumberLevels",
-				"NumberUnits",
-				"ClassifiedUse",
-				"BuildingUse",
-				"EstimatedValue",
-				"RestrictedWork",
-				"ResidentialBuildingContract",
-			)
-
 			if isinstance(job["project_data"], list):
 				if len(job["project_data"]) > 0:
 					for pdField in projectDataFields:
@@ -145,6 +144,7 @@ if __name__ == "__main__":
 		# 	break
 
 		if testCounter == 1:
+			# Write the first header row
 			dateSuffix = datetime.now().strftime("%Y%m%d%H%M%S")
 			headerRow = allRows[0].keys()
 			csvFileName = outputDir + "alpha_export_" + dateSuffix + ".csv";
@@ -154,6 +154,7 @@ if __name__ == "__main__":
 			dictWriter.writeheader()
 			outputFile.close()
 
+		# Every 30 files, write info to the output file & clear the memory
 		if testCounter % 30 == 0:
 			writeCSVFile(csvFileName, allRows)
 			allRows = []
