@@ -5,6 +5,8 @@ Python install Windows 2021 (v.3.9)
 Go to python.org website
 Download Python 64 bit installer & run it, default install
 
+Tensorflow requires python 3.8
+
 Find the path to Python.
 It should be somewhere like this:
 
@@ -30,10 +32,26 @@ CD to a folder to place a virtualenv to hold packages
 e.g. cd C:\Users\scott.davies\Documents\ws\py
 virtualenv envpy39
 
-
 %Activate%
 
 pip install numpy
 pip install scipy
 pip install matplotlib
+
+My project scripts are in:
+C:\Users\scott.davies\Documents\ws\py\team_loki_ml\scripts
+
+
+https://pygobject.readthedocs.io/en/latest/getting_started.html
+Followed instructions for installing & building with msys2
+
+
+Installed MSys2 for PyGTK for GUI stuff
+ - looks like pip & virtualenv are problematic
+ - install msys2 packages instead
+ Can have pygtk but not tensorflow without building it from source
+
+pacman -S mingw-w64-x86_64-python-numpy
+pacman -S mingw-w64-x86_64-python-matplotlib
+
 
